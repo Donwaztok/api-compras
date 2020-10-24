@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.donwaztok.apicompras")
+@ComponentScan(basePackages = "com.donwaztok.apicompras.entity")
 public class ConfigurationData {
 
 }
