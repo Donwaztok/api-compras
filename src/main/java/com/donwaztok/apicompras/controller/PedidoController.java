@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,24 +17,23 @@ import com.donwaztok.apicompras.entity.Pedido;
 import com.donwaztok.apicompras.repository.PedidoRepository;
 
 @RestController
-@RequestMapping("/pedido")
 class PedidoController {
 
 	@Autowired
 	private PedidoRepository _pedidoRepository;
 
-	@PostMapping
+	@PostMapping(value = "/pedido")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Pedido create(@RequestBody Pedido pedido) {
 		return _pedidoRepository.save(pedido);
 	}
 
-	@GetMapping
+	@GetMapping(value = "/pedidos")
 	public List<Pedido> findAll() {
 		return _pedidoRepository.findAll();
 	}
 
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/pedido/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<Pedido> GetById(@PathVariable(value = "id") long id) {
 		Optional<Pedido> pedido = _pedidoRepository.findById(id);
