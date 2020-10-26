@@ -1,13 +1,18 @@
 package com.donwaztok.apicompras.entity;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Pedido {
@@ -20,7 +25,10 @@ public class Pedido {
 	private BigDecimal total;
 
 	@Column(nullable = false)
-	private Timestamp data;
+	private LocalDateTime data;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "pedido")
+	private List<PedidoItem> pedido_item = new ArrayList<PedidoItem>();
 
 	public long getId() {
 		return id;
@@ -38,11 +46,19 @@ public class Pedido {
 		this.total = total;
 	}
 
-	public Timestamp getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 
-	public void setData(Timestamp data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
+	}
+
+	public List<PedidoItem> getPedido_item() {
+		return pedido_item;
+	}
+
+	public void setPedido_item(List<PedidoItem> pedido_item) {
+		this.pedido_item = pedido_item;
 	}
 }
