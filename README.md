@@ -62,4 +62,4 @@ java -jar target/*.jar target/*.war
 Para os testes é possível utilizar a documentação em Swagger
 http://localhost:8080/swagger-ui.html
 
-Ou executar o projeto feito em Django para consumir as APIs desse projeto em https://github.com/Donwaztok/api-compras-django
+Ou executar o projeto feito em Django para consumir as APIs desse projeto em https://github.com/Donwaztok/api_compras_django
