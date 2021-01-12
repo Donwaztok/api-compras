@@ -14,7 +14,7 @@ Configurar a senha do Postgres
 ```
 sudo -u postgres psql
 ```
-Depois ```\password``` para configurar a senha (padrão ```postegres```).
+Depois ```\password``` para configurar a senha (padrão ```postgres```).
 
 Após isso, crie o banco de dados
 ```
